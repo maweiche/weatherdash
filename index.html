@@ -21,59 +21,54 @@
       </div>
     </header>
   
-    <!-- Two column layout -->
+    <!-- Two column layout...... Main weather card and sidebar card -->
     <section class="container my-5">
       <div class="row">
-        <div class="col-12 col-md-8 col-xl-9">
-          <h3>Main Weather Display</h3>
-          <h5>Do we need this header???/h5>
-          <p>
-            Input main weather card here
-          </p>
-        </div>
-  
-        <div class="col-12 col-md-4 col-xl-3">
-          <h3>Sidebar Recent Searches + New Search Content</h3>
-          <ul>
-            <li>List all</li>
-            <li>of the most</li>
-            <li>recent searches, limit to 5??</li>
-          </ul>
+          <div class="col-12 col-md-8 col-xl-9" id="mainWeatherContainer">
+            <h3>Main Weather Display</h3>
+            <h5>Do we need this header???</h5>
+              <p>
+                Input main weather card here
+              </p>
+          </div>
+          <form>
+            <div class="col-12 col-md-4 col-xl-3" id="searchContainer">
+             <h3>Searchbar</h3>
+            <div class="form-group">
+              <label for="searchInputText">City</label>
+              <input type="text" class="form-control" id="searchInput" aria-describedby="keywordHelp">
+            </div>
+            <button class="btn btn-danger" id="submitButton">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </section>
   
     <!-- Four column layout -->
-    <section class="container my-5 bg-transparent text-dark">
+    <section class="container my-5 bg-transparent text-dark" id="fiveDayContainer">
       <div class="row">
-        <div class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-          <h3>Day 1</h3>
-          <h5>Corresponding day of week here (i.e. Monday)</h5>
-          <p>Insert weather card for id: 0</p>
+        <div id="d0Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
         </div>
-        <div class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-          <h3>Day 2</h3>
-          <h5>Corresponding day of week here</h5>
-          <p>Insert weather for id : 1</p>
+        
+        <div id="d1Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
         </div>
-        <div class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-          <h3>Day 3</h3>
-          <h5>Corresponding day of week here</h5>
-          <p>Insert weather for id : 2</p>
+
+        <div id="d2Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
         </div>
-        <div class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-          <h3>Day 4</h3>
-          <h5>Corresponding day of week here</h5>
-          <p>Isert weather for id : 3</p>
+
+        <div id="d3Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
         </div>
-        <div class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-            <h3>Day 5</h3>
-            <h5>Corresponding day of week here</h5>
-            <p>Isert weather for id : 4</p>
-          </div>
+
+        <div id="d4Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
+        </div>
+
       </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script rel="script" href="script.js"></script>
   </body>
   
   </html>
