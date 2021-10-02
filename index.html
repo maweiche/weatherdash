@@ -31,23 +31,25 @@
                 Input main weather card here
               </p>
           </div>
-          <form>
+
             <div class="col-12 col-md-4 col-xl-3" id="searchContainer">
-             <h3>Searchbar</h3>
-            <div class="form-group">
-              <label for="searchInputText">City</label>
-              <input type="text" id="searchInput" aria-describedby="keywordHelp">
+              <form>
+                <label for="city-input">City Search</label>
+                  <input type="text" id="searchpcity"><br>
+                  <input id="add-city" type="submit" value="Submit">
+              </form>
+
+              <div id="cities">
+
+              </div>
+
             </div>
-          </form>
-          <button class="btn btn-danger" id="submitButton">
-            Submit
-          </button>
         </div>
       </div>
     </section>
-  
+<!--   
     <!-- Four column layout -->
-    <section class="container my-5 bg-transparent text-dark" id="fiveDayContainer">
+    <!-- <section class="container my-5 bg-transparent text-dark" id="fiveDayContainer">
       <!-- <div class="row">
         <div id="d0Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
         </div>
