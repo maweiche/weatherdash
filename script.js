@@ -8,9 +8,11 @@ var day2Card = document.getElementById("#d1Container");
 var day3Card = document.getElementById("#d2Container");
 var day4Card = document.getElementById("#d3Container");
 var day5Card = document.getElementById("#d4Container");
+var cityName = document.getElementById("#searchInput");
 
 
 function getAPI () {
+    var requestURL = 'api.openweathermap.org/data/2.5/forecast?q='+'{city name}'+'&appid=9df12987c44ceefc6fedbd4add7a8abd'
     // Make fetch() request then loop through the data, creating new HTML elements
     fetch(requestURL)
         .then(function (response) {
