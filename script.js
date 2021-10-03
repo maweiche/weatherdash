@@ -12,6 +12,7 @@ var currentTemp = $("#currentTemp");
 var currentHumidity = $("#currentHumidity");
 var currentWindSpeed = $("#currentWindSpeed");
 var UVindex = $("#uvIndex")
+var currentDate = "10/3";
 
 //API Key for OpenWeatherAPI
 var APIkey = "9df12987c44ceefc6fedbd4add7a8abd";
@@ -50,6 +51,11 @@ function currentWeatherRequest(cityInput) {
     }).then(function(response){
         console.log("this is the response: ", response);
         mainCity.text(response.name);
+        mainCity.append("<small class='text-muted' id='currentDate'>");
+        $("#currentDate").text("(" + currentDate + ")");
+        mainCity.append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt ='" + response.weather[0].main + "' />")
+        currentTemp.text(respons.main.temp);
+        currentTemp.append("&deg;F");
 
     })
 }
