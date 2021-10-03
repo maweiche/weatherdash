@@ -19,8 +19,50 @@ var APIkey = "9df12987c44ceefc6fedbd4add7a8abd";
 //Empty Array to start for City Searches
 var citySearchArray = [];
 
-var requestURL5day = 'https://api.openweathermap.org/data/2.5/forecast?q='+cityName+'&appid=9df12987c44ceefc6fedbd4add7a8abd'
-var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid=9df12987c44ceefc6fedbd4add7a8abd'
+
+
+//Add event listener to City Search Submit button to grab the Search Input
+submitBtn.on("click", function(event){
+    event.preventDefault();
+
+    //Take Input
+    var cityInput = searchInput.val().trim();
+
+    currentWeatherRequest(cityInput)
+    searchHistory(cityInput);
+    searchInput.val("");
+});
+///Add event listener for Clear City Search History
+
+
+
+///Search History click functionality 
+
+
+
+//Function to request API
+function currentWeatherRequest(cityInput) {
+    var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q='+ cityInput +'&appid=9df12987c44ceefc6fedbd4add7a8abd'
+    //Ajax call
+    $.ajax({
+        url: requestURLsolo,
+        method: "GET"
+    }).then(function(response){
+        console.log("this is the response: ", response);
+        mainCity.text(response.name);
+
+    })
+}
+
+
+
+
+
+
+
+
+
+
 
 
 $(document).ready(function() {
