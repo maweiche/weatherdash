@@ -21,27 +21,27 @@
       </div>
     </header>
   
-    <!-- Two column layout...... Main weather card and sidebar card -->
+    <!-- Search Form and Histor-->
+    <div class="col-12 col-md-4 col-xl-3" id="searchContainer">
+      <form>
+        <label for="city-input">City Search</label>
+          <input type="text" id="city-input"><br>
+          <input id="add-city" type="submit" value="Submit">
+      </form>
+      <!-- Search History -->
+      <div class="card" id="cities">
+          <ul class="list-group" id="searchedCitiesList"></ul>
+          <button id="clear" class="btn btn-sm">Clear History</button>
+      </div>
+
+    </div>
     <section class="container my-5">
       <div class="row">
           <div class="col-12 col-md-8 col-xl-9" id="mainWeatherContainer">
-            <h3>Main Weather Display</h3>
-            <h5>Do we need this header???</h5>
-              <p>
-                Input main weather card here
-              </p>
+
           </div>
 
-            <div class="col-12 col-md-4 col-xl-3" id="searchContainer">
-              <form>
-                <label for="city-input">City Search</label>
-                  <input type="text" id="searchpcity"><br>
-                  <input id="add-city" type="submit" value="Submit">
-              </form>
 
-              <div id="cities">
-
-              </div>
 
             </div>
         </div>
