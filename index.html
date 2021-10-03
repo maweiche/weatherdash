@@ -21,17 +21,22 @@
       </div>
     </header>
   
-    <!-- Search Form and Histor-->
+    <!-- Search Form and History-->
     <div class="col-12 col-md-4 col-xl-3" id="searchContainer">
-      <form>
-        <label for="city-input">City Search</label>
-          <input type="text" id="city-input"><br>
-          <input id="add-city" type="submit" value="Submit">
+      <h3>City Search:</h3>
+      <form class="form-group input-group">
+          <input type="text" id="city-input" class="formGroup" placeholder="Type City Here">
+          <div class="citySearchArrayAppend">
+            <button class="btn btn-info" type="button" id="submitButton">Search
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+          
       </form>
       <!-- Search History -->
       <div class="card" id="cities">
           <ul class="list-group" id="searchedCitiesList"></ul>
-          <button id="clear" class="btn btn-sm">Clear History</button>
+          <button id="clear" class="btn btn-info">Clear </button>
       </div>
 
     </div>
