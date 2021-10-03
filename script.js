@@ -59,6 +59,20 @@ function currentWeatherRequest(cityInput) {
         currentHumidity.text(response.main.humidity + "%");
         currentWindSpeed.text(response.wind.speed + "MPH");
 
+        //Get Geo-Coordinates to then call on UV Index
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+
+        var requestURLuv = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon +'&exclude=minutely,hourly,daily,alerts&appid=9df12987c44ceefc6fedbd4add7a8abd';
+        //Ajax for UV Index
+        $.ajax({
+            url: requestURLuv,
+            method: "GET"
+        }).then(function(response){
+            console.log("this is the uv response: ", response.current.uvi)
+            UVindex.text(response.current.uvi);
+        });
+
     })
 }
 
