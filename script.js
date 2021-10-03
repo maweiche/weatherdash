@@ -43,7 +43,7 @@ submitBtn.on("click", function(event){
 
 //Function to request API
 function currentWeatherRequest(cityInput) {
-    var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q='+ cityInput +'&appid=9df12987c44ceefc6fedbd4add7a8abd'
+    var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q='+ cityInput +'&units=imperial&appid=9df12987c44ceefc6fedbd4add7a8abd'
     //Ajax call
     $.ajax({
         url: requestURLsolo,
@@ -54,8 +54,10 @@ function currentWeatherRequest(cityInput) {
         mainCity.append("<small class='text-muted' id='currentDate'>");
         $("#currentDate").text("(" + currentDate + ")");
         mainCity.append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt ='" + response.weather[0].main + "' />")
-        currentTemp.text(respons.main.temp);
+        currentTemp.text(response.main.temp);
         currentTemp.append("&deg;F");
+        currentHumidity.text(response.main.humidity + "%");
+        currentWindSpeed.text(response.wind.speed + "MPH");
 
     })
 }
