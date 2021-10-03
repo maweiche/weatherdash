@@ -15,15 +15,12 @@
     <header class="container-fluid bg-dark text-light mb-5 p-3">
       <div class="d-flex align-items-center">
         <h1>Weather "in a" Dash</h1>
-        <h3 class="ml-auto">
-          ...get it?
-        </h3>
       </div>
     </header>
   
     <!-- Search Form and History-->
     <div class="col-12 col-md-4 col-xl-3" id="searchContainer">
-      <h3>City Search:</h3>
+      <h4>City Search:</h4>
       <form class="form-group input-group">
           <input type="text" id="city-input" class="formGroup" placeholder="Type City Here">
           <div class="citySearchArrayAppend">
@@ -40,15 +37,17 @@
       </div>
 
     </div>
-    <section class="container my-5">
+    <section class="container my-5" id="mainWeatherContainer">
       <div class="row">
-          <div class="col-12 col-md-8 col-xl-9" id="mainWeatherContainer">
-
-          </div>
-
-
-
+          <div class="col-12" >
+            <div class="city-info border my-3 px-3 py-3">
+              <h3 id="currentCity">City Information<small class="text-muted" id="currentDate"></small></h3>
+                <p class="mb-0">Temperature: <span id="currentTemp"></span></p>
+                <p class="mb-0">Humiditiy: <span id="currentHumidity"></span></p>
+                <p class="mb-0">Wind Speed: <span id="currentWindSpeed"></span></p>
+                <p class="mb-0">UV Index: <span id="uvIndex"></span></p>
             </div>
+          </div>
         </div>
       </div>
     </section>
