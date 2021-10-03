@@ -1,19 +1,31 @@
+//Main Page Variables
 var mainWeatherContainerEl = $("#mainWeatherContainer");
 var searchContainerEl = $("#searchContainer");
 var searchInput = $("#searchInput");
-var fiveDayContainerEl = $("#fiveDayContainer");
+
 var submitBtn = $("#submitButton");
+var clearBtn = $("#clearButton");
 
-var mainCity = $("#main-city");
+var fiveDayContainerEl = $("#fiveDayContainer");
+var mainCity = $("#mainCity");
+var currentTemp = $("#currentTemp");
+var currentHumidity = $("#currentHumidity");
+var currentWindSpeed = $("#currentWindSpeed");
+var UVindex = $("#uvIndex")
 
-var cityName = "Raleigh" ;
+//API Key for OpenWeatherAPI
+var APIkey = "9df12987c44ceefc6fedbd4add7a8abd";
+
+//Empty Array to start for City Searches
+var citySearchArray = [];
+
 var requestURL5day = 'https://api.openweathermap.org/data/2.5/forecast?q='+cityName+'&appid=9df12987c44ceefc6fedbd4add7a8abd'
 var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid=9df12987c44ceefc6fedbd4add7a8abd'
 
 
 $(document).ready(function() {
 
-    var citySearchArray = ["Raleigh"];
+    
 
     //function to make buttons appear on the page
     function populateElements(citySearchArray, classToAdd, areaToAddTo) {

@@ -22,7 +22,7 @@
     <div class="col-12 col-md-4 col-xl-3" id="searchContainer">
       <h4>City Search:</h4>
       <form class="form-group input-group">
-          <input type="text" id="city-input" class="formGroup" placeholder="Type City Here">
+          <input type="text" id="searchInput" class="formGroup" placeholder="Type City Here">
           <div class="citySearchArrayAppend">
             <button class="btn btn-info" type="button" id="submitButton">Search
               <i class="fa fa-search"></i>
@@ -33,7 +33,7 @@
       <!-- Search History -->
       <div class="card" id="cities">
           <ul class="list-group" id="searchedCitiesList"></ul>
-          <button id="clear" class="btn btn-info">Clear </button>
+          <button id="clearButton" class="btn btn-info">Clear </button>
       </div>
 
     </div>
@@ -41,11 +41,28 @@
       <div class="row">
           <div class="col-12" >
             <div class="city-info border my-3 px-3 py-3">
-              <h3 id="currentCity">City Information<small class="text-muted" id="currentDate"></small></h3>
+              <h3 id="mainCity">City Information<small class="text-muted" id="currentDate"></small></h3>
                 <p class="mb-0">Temperature: <span id="currentTemp"></span></p>
                 <p class="mb-0">Humiditiy: <span id="currentHumidity"></span></p>
                 <p class="mb-0">Wind Speed: <span id="currentWindSpeed"></span></p>
                 <p class="mb-0">UV Index: <span id="uvIndex"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h3>5-Day Forecast</h3>
+          </div>
+        </div>
+        <div id="fiveDayContainer" class="row">
+          <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="cardTitle">Date</h5>
+                <i class="fa fa-sun"></i>
+                <p class="card-text">Temp: </p>
+                <p class="card-text">Humidity: </p>
+              </div>
             </div>
           </div>
         </div>
