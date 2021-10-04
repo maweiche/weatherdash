@@ -27,7 +27,7 @@ $("#currentDate").text("(" + currentDate + ")");
 //Search Local Storage for searched city history
 init();
 
-//Add event listener to City Search Submit button to grab the Search Input
+//Add a click function to City Search Submit button to grab the Search Input
 submitBtn.on("click", function(event){
     event.preventDefault();
 
@@ -38,6 +38,14 @@ submitBtn.on("click", function(event){
     searchedCities(cityInput);
     searchInput.val("");
 });
+
+//Add a click function to the city in the search bbar 
+searchedCititesList.on("click","li.cityBtn", function(event){
+    var value = $(this).data("value");
+    currentWeatherRequest(value);
+    searchedCities(value);
+})
+
 ///Add event listener for Clear City Search History
 clearBtn.on("click", function(){
     citySearchArray = [];
