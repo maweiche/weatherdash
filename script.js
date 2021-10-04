@@ -24,6 +24,9 @@ var citySearchArray = [];
 var currentDate = moment().format('L');
 $("#currentDate").text("(" + currentDate + ")");
 
+//Search Local Storage for searched city history
+init();
+
 //Add event listener to City Search Submit button to grab the Search Input
 submitBtn.on("click", function(event){
     event.preventDefault();
@@ -75,7 +78,14 @@ function showArray() {
 ///Render Cities from Local Storage
 function init() {
     if (localStorage.getItem("cities")){
+        citySearchArray = JSON.parse(localStorage.getItem("cities"));
+        var lastCity = citySearchArray.length -1;
+        showArray();
 
+        if (citySearchArray.length !== 0){
+            currentWeatherRequest(citySearchArray[lastCity]);
+            mainWeatherContainerEl.removeClass("hide");
+        }
     }
 }
 
@@ -121,126 +131,3 @@ function currentWeatherRequest(cityInput) {
 
 
 
-
-
-
-
-
-$(document).ready(function() {
-
-    
-
-    //function to make buttons appear on the page
-    function populateElements(citySearchArray, classToAdd, areaToAddTo) {
-        $(areaToAddTo).empty();
-
-        for (var i = 0; i < citySearchArray.length; i++) {
-            var newCityButton = $("<button>");
-            newCityButton.addClass(classToAdd);
-            newCityButton.attr("data-type", citySearchArray[i]);
-            newCityButton.text(citySearchArray[i]);
-            $(areaToAddTo).append(newCityButton);
-        }
-    }
-    
-    // $(document).on("click", ".city-button", function(event) {
-    //     $("#cities").empty();
-    //     $(".city-button").removeClass("active")
-    //     $(this).addClass("active");
-
-    //     var type = $(this).attr("data-type");
-    //     var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid=9df12987c44ceefc6fedbd4add7a8abd'
-
-    //     $.ajax({
-    //         url: requestURLsolo,
-    //         method: "GET"
-    //     })
-    //         .then(function(response) {
-    //             var results = response.data;
-
-    //             for (var i = 0; i < results.length; i++) {
-    //                 var weatherSoloDiv = $("<div class=\"weather\">")
-    //                 var cityName = results[i].name;
-    //                 var temperature = results[i].main.temp;
-    //                 var windSpeed = results [i].wind.speed;
-
-    //                 var p = $("<p>").text(cityName, temperature, windSpeed)
-
-    //                 weatherSoloDiv.append(p);
-
-    //                 $("#cities").append(weatherSoloDiv);
-    //                 console.log(results);
-    //             }
-    //         })
-    // })
-    // add new city button?
-    $("#add-city").on("click", function(event) {
-        event.preventDefault();
-
-        // var newCity = $("input").eq(0).val();
-        // var newCity = $("#city-input").val();
-        var newCity = "Raleigh";
-
-
-        if (newCity.length > 2) {
-            citySearchArray.push(newCity)
-        }
-
-        populateElements(citySearchArray, "city-button", "#city-buttons");
-    });
-
-    //main weather display====================
-    // function loadMainWeather() {
-    //     var type = $(this).attr("data-type");
-        // var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q='+cityName+'&appid=9df12987c44ceefc6fedbd4add7a8abd'
-        //Test Link
-    //     var requestURLsolo = 'httpS://api.openweathermap.org/data/2.5/weather?q=raleigh&appid=9df12987c44ceefc6fedbd4add7a8abd'
-
-    //     $.ajax({
-    //         url: requestURLsolo,
-    //         method: "GET"
-    //     })
-    //         .then(function(response) {
-    //             var soloResults = response.data;
-    //             console.log(soloResults);
-    //             for (var i = 0; i < soloResults.length; i++) {
-    //                 var weatherSoloDiv = $("<div class=\"weather\">")
-    //                 var cityName = results[i].name;
-    //                 var temperature = results[i].main.temp;
-    //                 var windSpeed = results [i].wind.speed;
-
-    //                 var p = $("<p>").text(cityName, temperature, windSpeed)
-
-    //                 weatherSoloDiv.append(p);
-
-    //                 $("#cities").append(weatherSoloDiv);
-    //                 console.log(results);
-    //             }
-    //         })
-    // }
-    ////////////=============
-
-// function getAPI () {
-//     // console.log(requestURL5day);
-//     // Make fetch() request then loop through the data, creating new HTML elements
-//     fetch(requestURL5day)
-//         .then(function (response) {
-//             return response.json();
-         
-//         })
-//         .then(function (data) {
-//             for (var i = 0; i < data.length; i++) {
-//             var dayName = document.createElement('article');
-//             var futureWeatherData = document.createElement('div');
-
-//             //Edit these for correct APIT tagging...
-//             dayName.textContent = data[i].forecast.time;
-//             console.log(dayName.textContent);
-//             futureWeatherData.textContent = data[i].weatherdatafor5day;
-//             fiveDayContainerEl.append(dayName);
-//             fiveDayContainerEl.append(futureWeatherData);
-//             }        
-//         });
-// }
-// // console.log(getAPI);
-// submitBtn.addEventListener('click', getAPI(requestURL5day));
