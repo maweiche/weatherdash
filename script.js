@@ -2,6 +2,7 @@
 var mainWeatherContainerEl = $("#mainWeatherContainer");
 var searchContainerEl = $("#searchContainer");
 var searchInput = $("#searchInput");
+var searchedCititesList = $("#searchedCitiesList")
 
 var submitBtn = $("#submitButton");
 var clearBtn = $("#clearButton");
@@ -12,7 +13,6 @@ var currentTemp = $("#currentTemp");
 var currentHumidity = $("#currentHumidity");
 var currentWindSpeed = $("#currentWindSpeed");
 var UVindex = $("#uvIndex")
-var currentDate = "10/3";
 
 //API Key for OpenWeatherAPI
 var APIkey = "9df12987c44ceefc6fedbd4add7a8abd";
@@ -20,7 +20,9 @@ var APIkey = "9df12987c44ceefc6fedbd4add7a8abd";
 //Empty Array to start for City Searches
 var citySearchArray = [];
 
-
+//Date Variable
+var currentDate = moment().format('L');
+$("#currentDate").text("(" + currentDate + ")");
 
 //Add event listener to City Search Submit button to grab the Search Input
 submitBtn.on("click", function(event){
@@ -37,7 +39,27 @@ submitBtn.on("click", function(event){
 
 
 
-///Search History click functionality 
+///Search History functionality 
+function searchedCitites(searchValue) {
+
+    if(searchValue) {
+        if (citySearchArray.indexOf(searchValue) === -1) {
+            citySearchArray.push(searchValue);
+
+            showArray();
+            clearBtn.removeClass("hide");
+            mainWeatherContainerEl.removeClass("hide");
+        }else{
+            var removeIndex = citySearchArray.indexOf(searchValue);
+            citySearchArray.splice(removeIndex, 1);
+            citySearchArray.push(searchValue);
+            showArray();
+            clearBtn.removeClass("hide");
+            mainWeatherContainerEl.removeClass("hide");
+        }
+    }
+    console.log("city list: ", citySearchArray);
+}
 
 
 
