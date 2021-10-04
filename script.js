@@ -136,6 +136,15 @@ function currentWeatherRequest(cityInput) {
         });
 
     })
+    //Ajax for 5 day forecast
+    $.ajax({
+        url: requestURLsolo,
+        method: "GET"
+    }).then(function(response){
+
+        console.log("this is the response for 5 day: ", response);
+        fiveDayContainerEl.empty();
+    })
 }
 
 
