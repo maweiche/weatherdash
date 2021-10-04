@@ -32,7 +32,7 @@ submitBtn.on("click", function(event){
     var cityInput = searchInput.val().trim();
 
     currentWeatherRequest(cityInput)
-    searchHistory(cityInput);
+    searchedCities(cityInput);
     searchInput.val("");
 });
 ///Add event listener for Clear City Search History
@@ -40,7 +40,7 @@ submitBtn.on("click", function(event){
 
 
 ///Search History functionality 
-function searchedCitites(searchValue) {
+function searchedCities(searchValue) {
 
     if(searchValue) {
         if (citySearchArray.indexOf(searchValue) === -1) {
@@ -60,7 +60,24 @@ function searchedCitites(searchValue) {
     }
     console.log("city list: ", citySearchArray);
 }
+//Show City Array
+function showArray() {
+    searchedCititesList.empty();///clear out existing array
+    citySearchArray.forEach(function(city){
+        var cityItem = $('<li class="listGroupItem cityBtn">');
+        cityItem.attr("data-value", city);
+        cityItem.text(city);
+        searchedCititesList.prepend(cityItem);    
+    });
+    localStorage.setItem("cities", JSON.stringify(citySearchArray));
+}
 
+///Render Cities from Local Storage
+function init() {
+    if (localStorage.getItem("cities")){
+
+    }
+}
 
 
 //Function to request API
@@ -202,48 +219,6 @@ $(document).ready(function() {
     //         })
     // }
     ////////////=============
-   function loadMainWeather (event){
-
-   
-    var type = $(this).attr("data-type");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-        .then(function(response) {
-          var results = response.data;
-  
-          for (var i = 0; i < results.length; i++) {
-            var animalDiv = $("<div class=\"animal-item\">");
-  
-            var rating = results[i].rating;
-  
-            var p = $("<p>").text("Rating: " + rating);
-  
-            var animated = results[i].images.fixed_height.url;
-            var still = results[i].images.fixed_height_still.url;
-  
-            var animalImage = $("<img>");
-            animalImage.attr("src", still);
-            animalImage.attr("data-still", still);
-            animalImage.attr("data-animate", animated);
-            animalImage.attr("data-state", "still");
-            animalImage.addClass("animal-image");
-  
-            animalDiv.append(p);
-            animalDiv.append(animalImage);
-  
-            $("#animals").append(animalDiv);
-          }
-        });
-    };
-    loadMainWeather();
-    populateElements(citySearchArray, "city-button", "#city-buttons");
-    });
-
-
 
 // function getAPI () {
 //     // console.log(requestURL5day);
