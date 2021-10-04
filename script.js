@@ -1,6 +1,6 @@
 //Main Page Variables
 var mainWeatherContainerEl = $("#mainWeatherContainer");
-var searchContainerEl = $("#searchContainer");
+// var searchContainerEl = $("#searchContainer");
 var searchInput = $("#searchInput");
 var searchedCititesList = $("#searchedCitiesList")
 
@@ -142,6 +142,15 @@ function currentWeatherRequest(cityInput) {
         }).then(function(response){
             console.log("this is the uv response: ", response.current.uvi)
             UVindex.text(response.current.uvi);
+            ////If statement to change text color depending on severity of UV
+            if (response.current.uvi.value < 3) {
+                UVindex.addClass('favorable');
+            }
+            else if (response.current.uvi.value > 6) {
+                UVindex.addClass('severe');
+            }else {
+                UVindex.addClass('moderate');
+            };
         });
 
     
@@ -161,7 +170,7 @@ function currentWeatherRequest(cityInput) {
         $('#fiveDayContainer').empty();
         for (var i = 1; i < response.list.length; i+=8) {
 
-            var fiveDayString = moment(response.list[i].dt_text).format("L");
+            var fiveDayString = moment(response.list[i].dt_txt).format("L");
             console.log("5 day string: ", fiveDayString);
 
             ///Variables of 5 day container cards
@@ -186,7 +195,7 @@ function currentWeatherRequest(cityInput) {
             fiveDayIcon.attr("alt", response.list[i].weather[0].main);
             fiveDayDate.text(fiveDayString);
             fiveDayTemp.text(response.list[i].main.temp);
-            console.log("this is 5 day temp: ", fiveDayTemp);///////////
+            // console.log("this is 5 day temp: ", fiveDayTemp);///////////
             fiveDayTemp.prepend("Temp: ");
             fiveDayTemp.append("&deg;F");
             fiveDayHum.text(response.list[i].main.humidity);

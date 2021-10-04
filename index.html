@@ -8,14 +8,11 @@
   <meta name="Description" content="Enter your description here" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-    ></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
   <title>Weather Dash</title>
 </head>
 <body>
-
+  <div class="container-fluid"
     <header class="container-fluid bg-dark text-light mb-5 p-3">
       <div class="d-flex align-items-center">
         <h1>Weather "in a" Dash</h1>
@@ -23,20 +20,21 @@
     </header>
   
     <!-- Search Form and History-->
-    <div class="row contentRow" id="searchContainer">
+    <div class="row contentRow">
       <div class="col-12 col-md-3 bg-light pt-3">
-      <h4>City Search:</h4>
-      <form class="form-group input-group">
+      <h5>City Search:</h4>
+      <form>
+        <div class="form-group input-group">
           <input type="text" id="searchInput" class="formGroup" placeholder="Search City Here">
           <div class="citySearchArrayAppend">
             <button class="btn btn-info" type="button" id="submitButton">Search
               <i class="fa fa-search"></i>
             </button>
           </div>
-          
+        </div>
       </form>
       <!-- Search History -->
-      <div class="card containerlg">
+      <div class="card">
           <ul class="list-group list-group-flush" id="searchedCitiesList"></ul>
           <button id="clearButton" class="btn btn-info btn-secondary">Clear </button>
       </div>

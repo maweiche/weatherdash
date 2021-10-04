@@ -1,4 +1,4 @@
-html, body {
+html, body, .contentRow, .container-fluid {
     height: 100%;
 }
 
@@ -6,14 +6,22 @@ html, body {
     display: none;
 }
 
-div {
-    display: block;
-}
 
 .cityBtn:hover {
     cursor: pointer;
 }
 
-/* .containerlg{
-    height: 100%;
-} */
+.favorable{
+    background-color: green;
+    color: white;
+}
+
+.moderate{
+    background-color: yellow;
+    color: black;
+}
+
+.sever{
+    background-color: red;
+    color: white;
+}
