@@ -39,11 +39,20 @@ submitBtn.on("click", function(event){
     searchInput.val("");
 });
 
-//Add a click function to the city in the search bbar 
+//Add a click function to the city in the search bar 
 searchedCititesList.on("click","li.cityBtn", function(event){
     var value = $(this).data("value");
     currentWeatherRequest(value);
     searchedCities(value);
+})
+
+//Add function to enter
+$(document).on("submit", function() {
+    event.preventDefault();
+    var cityInput = searchInput.val().trim();
+    currentWeatherRequest(cityInput)
+    searchedCities(cityInput);
+    searchInput.val("");
 })
 
 ///Add event listener for Clear City Search History

@@ -23,10 +23,11 @@
     </header>
   
     <!-- Search Form and History-->
-    <div class="col-12 col-md-3 pt-3" id="searchContainer">
+    <div class="row contentRow" id="searchContainer">
+      <div class="col-12 col-md-3 bg-light pt-3">
       <h4>City Search:</h4>
       <form class="form-group input-group">
-          <input type="text" id="searchInput" class="formGroup" placeholder="Type City Here">
+          <input type="text" id="searchInput" class="formGroup" placeholder="Search City Here">
           <div class="citySearchArrayAppend">
             <button class="btn btn-info" type="button" id="submitButton">Search
               <i class="fa fa-search"></i>
@@ -35,11 +36,11 @@
           
       </form>
       <!-- Search History -->
-      <div class="card" id="cities">
-          <ul class="list-group" id="searchedCitiesList"></ul>
-          <button id="clearButton" class="btn btn-sm btn-secondary">Clear </button>
+      <div class="card containerlg">
+          <ul class="list-group list-group-flush" id="searchedCitiesList"></ul>
+          <button id="clearButton" class="btn btn-info btn-secondary">Clear </button>
       </div>
-
+    </div>
     </div>
     <section  id="mainWeatherContainer" class="col-12 col-md-9 hide">
       <div class="row">
