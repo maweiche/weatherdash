@@ -135,16 +135,59 @@ function currentWeatherRequest(cityInput) {
             UVindex.text(response.current.uvi);
         });
 
-    })
+    
+
+
+    // var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=9df12987c44ceefc6fedbd4add7a8abd" + "&lat=" + lat + "&lon=" + lon;
+        var fiveDayURL = 'httpS://api.openweathermap.org/data/2.5/forecast?q='+ cityInput +'&units=imperial&appid=9df12987c44ceefc6fedbd4add7a8abd'    
+
+
     //Ajax for 5 day forecast
     $.ajax({
-        url: requestURLsolo,
+        url: fiveDayURL,
         method: "GET"
     }).then(function(response){
 
         console.log("this is the response for 5 day: ", response);
-        fiveDayContainerEl.empty();
+        $('#fiveDayContainer').empty();
+        for (var i = 1; i < response.list.length; i+=8) {
+
+            var fiveDayString = moment(response.list[i].dt_text).format("L");
+            console.log("5 day string: ", fiveDayString);
+
+            ///Variables of 5 day container cards
+            var fiveDayColumn = $("<div class='col-12 col-md-6 col-lg forecast-day mb-3'>");
+            var fiveDayCard = $("<div class='card'>");
+            var fiveDayBody = $("<div class='card-body'>");
+            var fiveDayDate = $("<h6 class='card-title'>");
+            var fiveDayIcon = $("<img>");
+            var fiveDayTemp = $("<p class='card-text mb-0'>");
+            var fiveDayHum = $("<p class='card-text mb-0'>");
+/////====================================================
+            ///Append all the 5 day variables to the page
+            $('#fiveDayContainer').append(fiveDayColumn);
+            // fiveDayContainerEl.append(fiveDayColumn);
+            fiveDayColumn.append(fiveDayCard);
+            fiveDayColumn.append(fiveDayBody);
+            fiveDayBody.append(fiveDayDate);
+            fiveDayBody.append(fiveDayIcon);
+            fiveDayBody.append(fiveDayTemp);
+            fiveDayBody.append(fiveDayHum);
+            fiveDayIcon.attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
+            fiveDayIcon.attr("alt", response.list[i].weather[0].main);
+            fiveDayDate.text(fiveDayString);
+            fiveDayTemp.text(response.list[i].main.temp);
+            console.log("this is 5 day temp: ", fiveDayTemp);///////////
+            fiveDayTemp.prepend("Temp: ");
+            fiveDayTemp.append("&deg;F");
+            fiveDayHum.text(response.list[i].main.humidity);
+            fiveDayHum.prepend("Humidity: ");
+            fiveDayHum.append("%");
+
+
+        }
     })
+})
 }
 
 
