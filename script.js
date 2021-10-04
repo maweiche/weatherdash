@@ -39,7 +39,12 @@ submitBtn.on("click", function(event){
     searchInput.val("");
 });
 ///Add event listener for Clear City Search History
+clearBtn.on("click", function(){
+    citySearchArray = [];
+    showArray();
 
+    $(this).addClass("hide");
+});
 
 
 ///Search History functionality 
