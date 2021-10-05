@@ -1,5 +1,6 @@
-html, body, .contentRow, .container-fluid {
+html, body{
     height: 100%;
+    flex: auto;
 }
 
 .hide {
@@ -11,7 +12,7 @@ html, body, .contentRow, .container-fluid {
     cursor: pointer;
 }
 
-.favorable{
+.green{
     background-color: green;
     color: white;
 }
@@ -21,7 +22,7 @@ html, body, .contentRow, .container-fluid {
     color: black;
 }
 
-.sever{
+.severE{
     background-color: red;
     color: white;
 }

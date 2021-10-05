@@ -143,10 +143,10 @@ function currentWeatherRequest(cityInput) {
             console.log("this is the uv response: ", response.current.uvi)
             UVindex.text(response.current.uvi);
             ////If statement to change text color depending on severity of UV
-            if (response.current.uvi.value < 3) {
-                UVindex.addClass('favorable');
+            if (response.current.uvi <= 3) {
+                UVindex.addClass('green');
             }
-            else if (response.current.uvi.value > 6) {
+            else if (response.current.uvi >= 6) {
                 UVindex.addClass('severe');
             }else {
                 UVindex.addClass('moderate');
