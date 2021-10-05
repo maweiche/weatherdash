@@ -1,6 +1,5 @@
 //Main Page Variables
 var mainWeatherContainerEl = $("#mainWeatherContainer");
-// var searchContainerEl = $("#searchContainer");
 var searchInput = $("#searchInput");
 var searchedCititesList = $("#searchedCitiesList")
 
@@ -122,7 +121,7 @@ function currentWeatherRequest(cityInput) {
     }).then(function(response){
         console.log("this is the response: ", response);
         mainCity.text(response.name);
-        mainCity.append("<small class='text-muted' id='currentDate'>");
+        mainCity.append("<small class='bold' id='currentDate'>");
         $("#currentDate").text("(" + currentDate + ")");
         mainCity.append("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt ='" + response.weather[0].main + "' />")
         currentTemp.text(response.main.temp);
@@ -174,7 +173,7 @@ function currentWeatherRequest(cityInput) {
             console.log("5 day string: ", fiveDayString);
 
             ///Variables of 5 day container cards
-            var fiveDayColumn = $("<div class='col-12 col-md-6 col-lg forecast-day mb-3'>");
+            var fiveDayColumn = $("<div class='col-12 col-md-6 col-lg mb-3'>");
             var fiveDayCard = $("<div class='card'>");
             var fiveDayBody = $("<div class='card-body'>");
             var fiveDayDate = $("<h6 class='card-title'>");
@@ -184,20 +183,24 @@ function currentWeatherRequest(cityInput) {
 /////====================================================
             ///Append all the 5 day variables to the page
             $('#fiveDayContainer').append(fiveDayColumn);
-            // fiveDayContainerEl.append(fiveDayColumn);
             fiveDayColumn.append(fiveDayCard);
             fiveDayColumn.append(fiveDayBody);
+
             fiveDayBody.append(fiveDayDate);
             fiveDayBody.append(fiveDayIcon);
             fiveDayBody.append(fiveDayTemp);
             fiveDayBody.append(fiveDayHum);
+
             fiveDayIcon.attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
             fiveDayIcon.attr("alt", response.list[i].weather[0].main);
+
             fiveDayDate.text(fiveDayString);
+
             fiveDayTemp.text(response.list[i].main.temp);
             // console.log("this is 5 day temp: ", fiveDayTemp);///////////
             fiveDayTemp.prepend("Temp: ");
             fiveDayTemp.append("&deg;F");
+            
             fiveDayHum.text(response.list[i].main.humidity);
             fiveDayHum.prepend("Humidity: ");
             fiveDayHum.append("%");

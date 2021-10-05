@@ -13,16 +13,13 @@
 </head>
 <body>
 
-    <header class="bg-dark text-light">
-      <div class="d-flex justify-content-center">
-        <h1>Weather "in a" Dash</h1>
-      </div>
+    <header class="bg-blue text-light d-flex justify-content-center">
+      <img src="A-Dash.png">
     </header>
   
     <!-- Search Form and History-->
-    <div class="row contentRow">
+    <div class="d-flex justify-content-center row">
       <div class="col-12 col-md-3 bg-light">
-      <h4>City Search:</h4>
       <form>
         <div class="form-group input-group">
           <input type="text" id="searchInput" class="formGroup" placeholder="Search City Here">
@@ -39,11 +36,12 @@
       </div>
     </div>
     </div>
-    <section  id="mainWeatherContainer" class="col-12 md-9 hide">
+    <!-- Main Weather Container -->
+    <section  id="mainWeatherContainer" class="card col-12 md-9 hide">
       <div class="row">
-          <div class="col-6 d-flex" >
+          <div class="col-12" >
             <div class="city-info border my-3 px-3 py-3">
-              <h3 id="mainCity">City Information<small class="text-muted" id="currentDate"></small></h3>
+              <h3 id="mainCity">City Information<span class="text-muted" id="currentDate"></span></h3>
                 <p class="mb-0">Temperature: <span id="currentTemp"></span></p>
                 <p class="mb-0">Humiditiy: <span id="currentHumidity"></span></p>
                 <p class="mb-0">Wind Speed: <span id="currentWindSpeed"></span></p>
@@ -51,13 +49,14 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- 5 Day Forecast Section -->
+        <div class="card row">
           <div class="col-12">
             <h3>5-Day Forecast</h3>
           </div>
         </div>
         <div id="fiveDayContainer" class="row">
-          <div class="col-6 ">
+          <div class="col-2 ">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Date</h5>
@@ -70,28 +69,7 @@
         </div>
       </div>
     </section>
-<!--   
-    <!-- Four column layout -->
-    <!-- <section class="container my-5 bg-transparent text-dark" id="fiveDayContainer">
-      <!-- <div class="row">
-        <div id="d0Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-        </div>
-        
-        <div id="d1Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-        </div>
-
-        <div id="d2Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-        </div>
-
-        <div id="d3Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-        </div>
-
-        <div id="d4Container" class="col-12 col-md-4 col-lg-2 bg-dark text-white">
-        </div> -->
-
-      </div>
-    </section>
-
+    <!-- Script Sources -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
