@@ -1,6 +1,6 @@
-html, body{
+body{
     height: 100%;
-    flex: auto;
+    /* display: flex; */
 }
 
 .hide {
@@ -22,7 +22,11 @@ html, body{
     color: black;
 }
 
-.severE{
+.severe{
     background-color: red;
     color: white;
+}
+
+.card-body, .city-info {
+    background-color: rgb(165, 227, 248);
 }
